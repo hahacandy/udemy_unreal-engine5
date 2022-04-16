@@ -2,7 +2,7 @@ function trans(query, el){
 	var result;
 	$.ajax({
 	 type:"POST", //전송방식
-	 url:"https://thubandiablo.xyz/temp/papago.php", //호출 URL
+	 url:"https:/your_site/papago.php", //호출 URL
 	 data:{query:query}, //넘겨줄 데이터
 	 success:function(args){
 	   //alert(args); //통신에 성공했을시 실행되는 함수
@@ -104,7 +104,7 @@ function set_video(){
 		});
 		
 		window.addEventListener("keyup", (e) => {
-			
+			console.log(e.keyCode);
 			if(e.keyCode == 32){
 				if(video.paused == true){
 					video.play();
