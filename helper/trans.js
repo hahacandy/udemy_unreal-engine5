@@ -50,12 +50,13 @@ function change_subtitles(){
 		}
 	}
 
-	
+	video = document.getElementsByTagName('video');
 	
 	cue_el = document.getElementsByClassName('captions-display--captions-cue-text--ECkJu');
 
-	if (cue_el.length > 0){
+	if (cue_el.length > 0 && video[0] != null){
 
+		video = video[0];
 		cue_text = cue_el[0].textContent;
 		
 		if (cue_text != null){
@@ -65,6 +66,7 @@ function change_subtitles(){
 				document.getElementById("subtitle").innerHTML = cue_text;
 				trans(cue_text, document.getElementById("subtitle2"));
 				video.pause();
+				console.log('멈춰');
 			}
 
 		}
@@ -73,25 +75,20 @@ function change_subtitles(){
 }
 setInterval(change_subtitles, 100);
 
-
 function set_video(){
-	video = document.querySelector('video');
+
 	if(video == null){
 		setTimeout(set_video, 1000);
 	}else{
 
 		window.addEventListener("keyup", (e) => {
 			console.log(e.keyCode);
-			if(e.keyCode == 32){
+			if(e.keyCode == 83){
 				if(video.paused == true){
 					video.play();
+				}else{
+					video.pause();
 				}
-			}else if (e.keyCode == 38){
-				video.currentTime = latest_cue_time - 0.2;
-				cue_text = latest_cue_text;
-				video.play();
-
-				
 			}
 		});
 		
@@ -100,7 +97,3 @@ function set_video(){
 }
 
 setTimeout(set_video, 1000);
-
-
-
-			
