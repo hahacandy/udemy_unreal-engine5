@@ -19,7 +19,7 @@ function setVideoSubtitles(){
 
 	if(document.getElementById('subtitle') == null){
 		
-		document.querySelector('#udemy > div.main-content-wrapper > div.main-content > div > div > main').insertAdjacentHTML("beforebegin", "\
+		document.querySelector('#jp > div.main-content-wrapper > div.main-content > div > div > main').insertAdjacentHTML("beforebegin", "\
 					<div style='padding:10px;background-color:rgba(0, 0, 0, 0.3);width:100%;text-align:center;text-shadow: black 0px 0px 7px, rgb(0 0 0 / 80%) 0px 0px 18px;color: white;font-size:30px'>\
 					<div id='subtitle'>subtitle</div>\
 					<div id='subtitle2'>subtitle2</div>\
@@ -89,6 +89,10 @@ function set_video(){
 				}else{
 					video.pause();
 				}
+			}else if(e.keyCode == 65){
+				video.currentTime = video.currentTime-3;
+			}else if(e.keyCode == 68){
+				video.currentTime = video.currentTime+3;
 			}
 		});
 		
