@@ -5,5 +5,5 @@
    
    
    
-したの拡張プログラムが必要
+したの拡張プログラムが必要   
 https://chrome.google.com/webstore/detail/ejoy-english-learn-with-m/amfojhdiedpdnlijjbhjnhokbnohfdfb   
