@@ -9,9 +9,24 @@ import websockets           # 클라이언트 접속이 되면 호출된다.
 import json
 from io import StringIO
 from selenium.webdriver.common.keys import Keys
+import sys
+import re
 
 
+def isHangul(text):
+    #Check the Python Version
+    pyVer3 =  sys.version_info >= (3, 0)
 
+    if pyVer3 : # for Ver 3 or later
+        encText = text
+    else: # for Ver 2.x
+        if type(text) is not unicode:
+            encText = text.decode('utf-8')
+        else:
+            encText = text
+
+    hanCount = len(re.findall(u'[\u3130-\u318F\uAC00-\uD7A3]+', encText))
+    return hanCount > 0
 
 def driver_set():
     option = webdriver.ChromeOptions()
@@ -42,6 +57,9 @@ def trans_text(query, driver):
     json_data = json.load(io)
     
     query = json_data['msg']
+    
+    if isHangul(query):
+        return None
     
     query = query.replace('\n', ' ')
 
