@@ -1,12 +1,16 @@
 var latest_eng_sub = null;
+var latest_kor_sub = null;
 
 function trans_when_change_subtitle(){
 	
 	var current_eng_sub = document.getElementsByClassName('ejoy-subtitles__sub')[0].textContent;
 	
+	var current_kor_sub = document.querySelector('#ejoy > div.enl-whole-title-translation.react-draggable').textContent;
 	
-	if(current_eng_sub != latest_eng_sub){
+	
+	if(current_eng_sub != latest_eng_sub && latest_kor_sub != current_kor_sub){
 		latest_eng_sub = current_eng_sub;
+		latest_kor_sub = current_kor_sub;
 		trans_subtitle();
 	}
 }
