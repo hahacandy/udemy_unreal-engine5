@@ -78,7 +78,7 @@ def trans_text(query, driver):
                 print(current_text)
                 text_check = 0
             
-            if len(current_text) != 0 and current_text != '번역 중...' and current_text != '번역' and text_check >= 10:
+            if len(current_text) != 0 and current_text != '번역 중...' and current_text != '번역' and text_check >= 5:
                 break
         except:
             pass
